@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "159456389059",
+    "firebase_url": "https://nawamessanger.firebaseio.com",
+    "project_id": "nawamessanger",
+    "storage_bucket": "nawamessanger.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159456389059:android:0ea1c90472192435",
+        "android_client_info": {
+          "package_name": "np.com.nawarajbista.nawamessenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159456389059-hbgd8s72qgnl386jc7lt9cj9kv88m0bp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-Fipj37ZmAyfQNsIvzjfUschpbTB5yyo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
