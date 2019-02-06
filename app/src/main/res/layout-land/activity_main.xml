@@ -85,4 +85,15 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="32dp" android:layout_marginStart="32dp"
     />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/circular_image_view_register_layout"
+            app:civ_border_width="4dp"
+            app:civ_border_color="@android:color/holo_green_dark"
+            app:layout_constraintEnd_toEndOf="@+id/image_register_layout"
+            app:layout_constraintStart_toStartOf="@+id/image_register_layout"
+            app:layout_constraintTop_toTopOf="@+id/image_register_layout"
+            app:layout_constraintBottom_toBottomOf="@+id/image_register_layout"/>
 </android.support.constraint.ConstraintLayout>

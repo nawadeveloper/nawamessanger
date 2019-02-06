@@ -2,7 +2,6 @@ package np.com.nawarajbista.nawamessenger
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -43,7 +42,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    var selectedPhotoURI: Uri? = null
+    private var selectedPhotoURI: Uri? = null
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
@@ -53,8 +52,11 @@ class RegisterActivity : AppCompatActivity() {
             selectedPhotoURI = data.data
 
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoURI)
-            val bitmapDrawable = BitmapDrawable(bitmap)
-            image_register_layout.setBackgroundDrawable(bitmapDrawable)
+
+            circular_image_view_register_layout.setImageBitmap(bitmap)
+            image_register_layout.alpha = 0f
+//            val bitmapDrawable = BitmapDrawable(bitmap)
+//            image_register_layout.setBackgroundDrawable(bitmapDrawable)
 
 
         }
@@ -113,6 +115,9 @@ class RegisterActivity : AppCompatActivity() {
         ref.setValue(user)
             .addOnSuccessListener {
                 Log.d("mainActivity","saved to firebase database")
+            }
+            .addOnFailureListener {
+                Log.d("mainActivity", "$it")
             }
     }
 }
