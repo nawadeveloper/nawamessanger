@@ -6,6 +6,7 @@ import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -42,6 +43,30 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    //handling screen rotation
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        val emailInput = email_register_layout.text
+        val userInput = user_name_register_layout.text
+        val passwordInput = password_register_layout.text
+
+        outState?.putCharSequence("saveEmail", emailInput)
+        outState?.putCharSequence("saveUser", userInput)
+        outState?.putCharSequence("savePassword", passwordInput)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val emailInput = savedInstanceState?.getCharSequence("saveEmail")
+        val userInput = savedInstanceState?.getCharSequence("saveUser")
+        val passwordInput = savedInstanceState?.getCharSequence("savePassword")
+
+        email_register_layout.setText(emailInput)
+        user_name_register_layout.setText(userInput)
+        password_register_layout.setText(passwordInput)
+    }
+
+    //handling  firebase and adding image
     private var selectedPhotoURI: Uri? = null
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
