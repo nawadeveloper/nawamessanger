@@ -12,7 +12,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
 
-        sign_in_button_sign_in_layout.setOnClickListener() {
+        sign_in_button_sign_in_layout.setOnClickListener {
             performSignIn()
         }
 
