@@ -3,7 +3,7 @@
 
     <item
             android:id="@+id/new_messages"
-            android:title="new messages"
+            android:title="new message"
             app:showAsAction="ifRoom"/>
 
     <item

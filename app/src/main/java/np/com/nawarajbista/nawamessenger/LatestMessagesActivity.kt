@@ -32,7 +32,8 @@ class LatestMessagesActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item?.itemId) {
             R.id.new_messages -> {
-
+                val intent = Intent(this, NewMessageActivity::class.java)
+                startActivity(intent)
             }
 
             R.id.menu_sign_out -> {
