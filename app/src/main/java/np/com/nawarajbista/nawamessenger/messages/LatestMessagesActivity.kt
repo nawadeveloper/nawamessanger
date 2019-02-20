@@ -1,4 +1,4 @@
-package np.com.nawarajbista.nawamessenger
+package np.com.nawarajbista.nawamessenger.messages
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
+import np.com.nawarajbista.nawamessenger.R
+import np.com.nawarajbista.nawamessenger.registerlogin.RegisterActivity
 
 class LatestMessagesActivity : AppCompatActivity() {
 

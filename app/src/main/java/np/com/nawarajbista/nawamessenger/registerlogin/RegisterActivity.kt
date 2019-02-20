@@ -1,4 +1,4 @@
-package np.com.nawarajbista.nawamessenger
+package np.com.nawarajbista.nawamessenger.registerlogin
 
 import android.app.Activity
 import android.content.Intent
@@ -12,6 +12,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_register.*
+import np.com.nawarajbista.nawamessenger.R
+import np.com.nawarajbista.nawamessenger.messages.LatestMessagesActivity
+import np.com.nawarajbista.nawamessenger.models.User
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -21,7 +24,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         sign_in_register_layout.setOnClickListener {
-            Log.d("all_ready_have_an_account", "go to login activity")
+            Log.d("allready_have_account", "go to login activity")
 
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -139,7 +142,11 @@ class RegisterActivity : AppCompatActivity() {
     private fun saveUserToFirebaseDatabase(profileImageUrl: String) {
         val uid = FirebaseAuth.getInstance().uid ?: ""
         val ref = FirebaseDatabase.getInstance().getReference("/user/$uid")
-        val user = User(uid, user_name_register_layout.text.toString(), profileImageUrl)
+        val user = User(
+            uid,
+            user_name_register_layout.text.toString(),
+            profileImageUrl
+        )
         ref.setValue(user)
             .addOnSuccessListener {
                 Log.d("mainActivity","saved to firebase database")
@@ -148,8 +155,4 @@ class RegisterActivity : AppCompatActivity() {
                 Log.d("mainActivity", "$it")
             }
     }
-}
-
-class User(val uid: String, val username: String, val profileImageUrl: String) {
-    constructor(): this("","","")
 }

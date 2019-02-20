@@ -1,5 +1,6 @@
-package np.com.nawarajbista.nawamessenger
+package np.com.nawarajbista.nawamessenger.messages
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,8 @@ import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_new_message.*
 import kotlinx.android.synthetic.main.user_row_new_message.view.*
+import np.com.nawarajbista.nawamessenger.R
+import np.com.nawarajbista.nawamessenger.models.User
 
 class NewMessageActivity : AppCompatActivity() {
 
@@ -23,6 +26,10 @@ class NewMessageActivity : AppCompatActivity() {
         supportActionBar?.title = "Select User"
 
         fetchUser()
+    }
+
+    companion object {
+        const val USER_KEY = "USER_KEY"
     }
 
     private fun fetchUser() {
@@ -38,6 +45,14 @@ class NewMessageActivity : AppCompatActivity() {
                     if(user != null) {
                         adapter.add(UserItem(user))
                     }
+                }
+                adapter.setOnItemClickListener {item, view->
+                    val userItem = item as UserItem
+                    val intent = Intent(view.context, ChatLogActivity::class.java)
+                    //intent.putExtra(USER_KEY, userItem.user.username)
+                    intent.putExtra(USER_KEY, userItem.user)
+                    startActivity(intent)
+                    finish()
                 }
                 recyclerview_newmessage.adapter = adapter
             }

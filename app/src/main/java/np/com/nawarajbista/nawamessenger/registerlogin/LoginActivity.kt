@@ -1,4 +1,4 @@
-package np.com.nawarajbista.nawamessenger
+package np.com.nawarajbista.nawamessenger.registerlogin
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
+import np.com.nawarajbista.nawamessenger.R
+import np.com.nawarajbista.nawamessenger.messages.LatestMessagesActivity
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
